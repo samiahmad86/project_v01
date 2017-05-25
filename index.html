@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Tasteless Library</title>
+
+    <!-- Bootstrap core CSS -->
+  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+	<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+	  <style>
+            .container-main {
+                margin-top: 75px;
+            }
+
+            .container-canvas {
+                margin: 0 auto;
+                width: 800px;
+            }
+
+           
+        </style>
+		<script>
+		  function init() {
+		  
+			var canvas = document.getElementById("floorCanvas");
+			var stage = new createjs.Stage(canvas);
+			var mainRect = new createjs.Shape();
+			mainRect.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").drawRect(0, 0, 600, 400);
+			
+			var shelfRectOne = new createjs.Shape();
+			shelfRectOne.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 0, 200, 50);
+			
+			var shelfRectTwo = new createjs.Shape();
+			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 350, 200, 50);
+			
+			var shelfRectThree = new createjs.Shape();
+			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 0, 200, 50);
+			
+			var shelfRectFour = new createjs.Shape();
+			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 350, 200, 50);
+			
+		
+			
+			var textOne = new createjs.Text("Science", "20px Tahoma", "#fffff0");
+			textOne.x = 60;
+			textOne.y = 30;
+			textOne.textBaseline = "alphabetic";	
+			
+			var textTwo = new createjs.Text("Maths", "20px Tahoma", "#fffff0");
+			textTwo.x = 360;
+			textTwo.y = 30;
+			textTwo.textBaseline = "alphabetic";	
+			
+			var textThree = new createjs.Text("History", "20px Tahoma", "#fffff0");
+			textThree.x = 60;
+			textThree.y = 380;
+			textThree.textBaseline = "alphabetic";	
+			
+			var textFour = new createjs.Text("Geography", "20px Tahoma", "#fffff0");
+			textFour.x = 360;
+			textFour.y = 380;
+			textFour.textBaseline = "alphabetic";	
+			
+			<!-- var shelfImg = new createjs.Bitmap("shelf.jpg"); -->
+			<!-- stage.addChild(shelfImg); -->
+			<!-- shelfImg.x = 10; -->
+			<!-- shelfImg.y = 10; -->
+			<!-- shelfImg.scaleX = .8; -->
+			<!-- shelfImg.scaleY = .8; -->
+			<!-- shelfImg.image.onload = function() { -->
+			<!-- stage.update(); -->
+			<!-- } -->
+			
+		
+			var currentLocation = new createjs.Bitmap("current_location.png");
+			stage.addChild(currentLocation);
+			currentLocation.x = 500;
+			currentLocation.y = 200;
+			currentLocation.scaleX = .1;
+			currentLocation.scaleY = .1;
+			currentLocation.image.onload = function() {
+			stage.update();
+			}
+			
+				
+			
+			stage.addChild(mainRect);
+			stage.addChild(shelfRectOne);
+			stage.addChild(shelfRectTwo);
+			stage.addChild(textOne);
+			stage.addChild(textTwo);
+			stage.addChild(textThree);
+			stage.addChild(textFour);
+			stage.update();
+			
+		  }
+		</script>
+  </head>
+
+  <body onload="init();">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tasteless Library</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+       
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container container-main">
+            <div class="container-canvas">
+                <canvas id="floorCanvas" width="800" height="600">
+                    This is my fallback content.
+                </canvas>
+            </div>
+        </div>
+
+    
+	
+	
+	
+		
+  </body>
+</html>
