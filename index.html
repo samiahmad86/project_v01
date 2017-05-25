@@ -28,7 +28,8 @@
                 margin: 0 auto;
                 width: 800px;
             }
-
+			
+		
            
         </style>
 		<script>
@@ -36,21 +37,53 @@
 		  
 			var canvas = document.getElementById("floorCanvas");
 			var stage = new createjs.Stage(canvas);
+			stage.enableMouseOver(20); 
 			var mainRect = new createjs.Shape();
 			mainRect.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").drawRect(0, 0, 600, 400);
 			
 			var shelfRectOne = new createjs.Shape();
 			shelfRectOne.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 0, 200, 50);
+			shelfRectOne.addEventListener("mouseover", function() {
+			tooltip.visible = true;
+			stage.update();
+			});
+			shelfRectOne.addEventListener("mouseout", function() {
+			tooltip.visible = false;
+			stage.update();
+			});
 			
 			var shelfRectTwo = new createjs.Shape();
 			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 350, 200, 50);
+			shelfRectTwo.addEventListener("mouseover", function() {
+			tooltip.visible = true;
+			stage.update();
+			});
+			shelfRectTwo.addEventListener("mouseout", function() {
+			tooltip.visible = false;
+			stage.update();
+			});
 			
 			var shelfRectThree = new createjs.Shape();
-			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 0, 200, 50);
+			shelfRectThree.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 0, 200, 50);
+			shelfRectThree.addEventListener("mouseover", function() {
+			tooltip.visible = true;
+			stage.update();
+			});
+			shelfRectThree.addEventListener("mouseout", function() {
+			tooltip.visible = false;
+			stage.update();
+			});
 			
 			var shelfRectFour = new createjs.Shape();
-			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 350, 200, 50);
-			
+			shelfRectFour.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 350, 200, 50);
+			shelfRectFour.addEventListener("mouseover", function() {
+			tooltip.visible = true;
+			stage.update();
+			});
+			shelfRectFour.addEventListener("mouseout", function() {
+			tooltip.visible = false;
+			stage.update();
+			});
 		
 			
 			var textOne = new createjs.Text("Science", "20px Tahoma", "#fffff0");
@@ -72,6 +105,14 @@
 			textFour.x = 360;
 			textFour.y = 380;
 			textFour.textBaseline = "alphabetic";	
+			
+			
+			var tooltip = new createjs.Text("This is just a placeholder", "20px Tahoma", "#ff0000");
+			tooltip.x = 200;
+			tooltip.y = 200;
+			tooltip.textBaseline = "alphabetic";	
+			tooltip.visible = false;
+			
 			
 			<!-- var shelfImg = new createjs.Bitmap("shelf.jpg"); -->
 			<!-- stage.addChild(shelfImg); -->
@@ -97,15 +138,29 @@
 				
 			
 			stage.addChild(mainRect);
+			stage.addChild(tooltip);
 			stage.addChild(shelfRectOne);
 			stage.addChild(shelfRectTwo);
+			stage.addChild(shelfRectThree);
+			stage.addChild(shelfRectFour);
 			stage.addChild(textOne);
 			stage.addChild(textTwo);
 			stage.addChild(textThree);
 			stage.addChild(textFour);
 			stage.update();
 			
+			showTooltip(shelfRectOne);
+			
+			
 		  }
+		  
+		  function showTooltip(shelf) {
+			
+		 
+		  }
+		  
+		
+			
 		</script>
   </head>
 
@@ -131,11 +186,12 @@
     <div class="container container-main">
             <div class="container-canvas">
                 <canvas id="floorCanvas" width="800" height="600">
-                    This is my fallback content.
+                 
                 </canvas>
             </div>
-        </div>
-
+			
+    </div>
+	
     
 	
 	
