@@ -7,164 +7,19 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    
-
     <title>Tasteless Library</title>
 
     <!-- Bootstrap core CSS -->
-  
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   
 	<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-	  <style>
-            .container-main {
-                margin-top: 75px;
-            }
+ <link rel="stylesheet" type="text/css" href="floorCss.css">
+  <script  src="makeFloor.js"></script>
+	</head>
 
-            .container-canvas {
-                margin: 0 auto;
-                width: 800px;
-            }
-			
-		
-           
-        </style>
-		<script>
-		  function init() {
-		  
-			var canvas = document.getElementById("floorCanvas");
-			var stage = new createjs.Stage(canvas);
-			stage.enableMouseOver(20); 
-			var mainRect = new createjs.Shape();
-			mainRect.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").drawRect(0, 0, 600, 400);
-			
-			var shelfRectOne = new createjs.Shape();
-			shelfRectOne.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 0, 200, 50);
-			shelfRectOne.addEventListener("mouseover", function() {
-			tooltip.visible = true;
-			stage.update();
-			});
-			shelfRectOne.addEventListener("mouseout", function() {
-			tooltip.visible = false;
-			stage.update();
-			});
-			
-			var shelfRectTwo = new createjs.Shape();
-			shelfRectTwo.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (10, 350, 200, 50);
-			shelfRectTwo.addEventListener("mouseover", function() {
-			tooltip.visible = true;
-			stage.update();
-			});
-			shelfRectTwo.addEventListener("mouseout", function() {
-			tooltip.visible = false;
-			stage.update();
-			});
-			
-			var shelfRectThree = new createjs.Shape();
-			shelfRectThree.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 0, 200, 50);
-			shelfRectThree.addEventListener("mouseover", function() {
-			tooltip.visible = true;
-			stage.update();
-			});
-			shelfRectThree.addEventListener("mouseout", function() {
-			tooltip.visible = false;
-			stage.update();
-			});
-			
-			var shelfRectFour = new createjs.Shape();
-			shelfRectFour.graphics.setStrokeStyle(1).beginStroke("rgba(0,0,0,1)").beginFill("#994400").drawRect  (300, 350, 200, 50);
-			shelfRectFour.addEventListener("mouseover", function() {
-			tooltip.visible = true;
-			stage.update();
-			});
-			shelfRectFour.addEventListener("mouseout", function() {
-			tooltip.visible = false;
-			stage.update();
-			});
-		
-			
-			var textOne = new createjs.Text("Science", "20px Tahoma", "#fffff0");
-			textOne.x = 60;
-			textOne.y = 30;
-			textOne.textBaseline = "alphabetic";	
-			
-			var textTwo = new createjs.Text("Maths", "20px Tahoma", "#fffff0");
-			textTwo.x = 360;
-			textTwo.y = 30;
-			textTwo.textBaseline = "alphabetic";	
-			
-			var textThree = new createjs.Text("History", "20px Tahoma", "#fffff0");
-			textThree.x = 60;
-			textThree.y = 380;
-			textThree.textBaseline = "alphabetic";	
-			
-			var textFour = new createjs.Text("Geography", "20px Tahoma", "#fffff0");
-			textFour.x = 360;
-			textFour.y = 380;
-			textFour.textBaseline = "alphabetic";	
-			
-			
-			var tooltip = new createjs.Text("This is just a placeholder", "20px Tahoma", "#ff0000");
-			tooltip.x = 200;
-			tooltip.y = 200;
-			tooltip.textBaseline = "alphabetic";	
-			tooltip.visible = false;
-			
-			
-			<!-- var shelfImg = new createjs.Bitmap("shelf.jpg"); -->
-			<!-- stage.addChild(shelfImg); -->
-			<!-- shelfImg.x = 10; -->
-			<!-- shelfImg.y = 10; -->
-			<!-- shelfImg.scaleX = .8; -->
-			<!-- shelfImg.scaleY = .8; -->
-			<!-- shelfImg.image.onload = function() { -->
-			<!-- stage.update(); -->
-			<!-- } -->
-			
-		
-			var currentLocation = new createjs.Bitmap("current_location.png");
-			stage.addChild(currentLocation);
-			currentLocation.x = 500;
-			currentLocation.y = 200;
-			currentLocation.scaleX = .1;
-			currentLocation.scaleY = .1;
-			currentLocation.image.onload = function() {
-			stage.update();
-			}
-			
-				
-			
-			stage.addChild(mainRect);
-			stage.addChild(tooltip);
-			stage.addChild(shelfRectOne);
-			stage.addChild(shelfRectTwo);
-			stage.addChild(shelfRectThree);
-			stage.addChild(shelfRectFour);
-			stage.addChild(textOne);
-			stage.addChild(textTwo);
-			stage.addChild(textThree);
-			stage.addChild(textFour);
-			stage.update();
-			
-			showTooltip(shelfRectOne);
-			
-			
-		  }
-		  
-		  function showTooltip(shelf) {
-			
-		 
-		  }
-		  
-		
-			
-		</script>
-  </head>
-
-  <body onload="init();">
+  <body onload="load()">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -184,12 +39,26 @@
     </nav>
 
     <div class="container container-main">
-            <div class="container-canvas">
-                <canvas id="floorCanvas" width="800" height="600">
-                 
-                </canvas>
+            <div class="row "> 
+              <div class="container col-md-8 search-bar-container col-centered">
+                <div class="input-group add-on">
+                  <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                  <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit" onclick="locateShelf()"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
-			
+            <div class="row">
+              <div class=" container col-md-8 col-centered">
+                <div class="container-canvas">
+                    <canvas id="floorCanvas" width="800" height="600">
+                     
+                    </canvas>
+                    <div id="info_obj" class="info_card card_shadow" style="left: 0px; top: 0px; display: none;"> <p> </p></div>
+                </div>
+              </div>
+            </div>
     </div>
 	
     
